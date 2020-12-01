@@ -1,9 +1,11 @@
 use std::io;
 
-// This program will find two numbers from a list that add to 2020 and output
+// This program will find three numbers from a list that add to 2020 and output
 // their product.
 // Quick and dirty implementation using just the basic skills from the book till ch3
-// O(n^2) brute-force solution
+// O(n^3) brute-force solution
+// Call using stdin:
+//     cargo run < input.txt
 fn main() {
     let mut input_arr = [0; 200];
     for i in 0..input_arr.len() {
@@ -22,8 +24,11 @@ fn main() {
         let int1 = input_arr[i];
         for j in i..input_arr.len() {
             let int2 = input_arr[j];
-            if int1 + int2 == 2020 {
-                ans = int1 * int2;
+            for k in j..input_arr.len() {
+                let int3 = input_arr[k];
+                if int1 + int2 + int3 == 2020 {
+                    ans = int1 * int2 * int3;
+                }
             }
         }
     }

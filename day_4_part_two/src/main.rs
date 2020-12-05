@@ -104,7 +104,7 @@ impl Passport {
 
     fn set_passport_id(&mut self, pid: String) {
         let mut pass = true;
-        for (i, character) in pid.chars().enumerate() {
+        for character in pid.chars() {
             if !(character >= '0' && character <= '9') {
                 pass = false;
             }
